@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGathererGUI", "DataGathererGUI\DataGathererGUI.csproj", "{E4C20A5E-4517-444E-9291-3F10E4B12570}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataHelper", "DataHelper\DataHelper.csproj", "{E3AC9D8C-CE8C-403E-B6CF-C16E14AB4837}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4C20A5E-4517-444E-9291-3F10E4B12570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C20A5E-4517-444E-9291-3F10E4B12570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C20A5E-4517-444E-9291-3F10E4B12570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C20A5E-4517-444E-9291-3F10E4B12570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3AC9D8C-CE8C-403E-B6CF-C16E14AB4837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3AC9D8C-CE8C-403E-B6CF-C16E14AB4837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3AC9D8C-CE8C-403E-B6CF-C16E14AB4837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3AC9D8C-CE8C-403E-B6CF-C16E14AB4837}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
