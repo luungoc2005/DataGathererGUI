@@ -1,0 +1,132 @@
+c:\users\gasto\documents\visual studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.exe.config
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.dll.config
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.exe
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.pdb
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.dll
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.MachineLearning.GPL.dll
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.Core.dll
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.dll
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Statistics.dll
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\DataHelper.dll
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\DataHelper.pdb
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.xml
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.MachineLearning.GPL.xml
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.xml
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.Core.xml
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Statistics.xml
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.csprojResolveAssemblyReference.cache
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.Form1.resources
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.Properties.Resources.resources
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.csproj.GenerateResource.Cache
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.exe
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.pdb
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Neuro.dll
+C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Neuro.xml
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.exe.config
+H:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.exe
+H:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.pdb
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.dll.config
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.exe
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.pdb
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.dll
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.MachineLearning.GPL.dll
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.Core.dll
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.dll
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Neuro.dll
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Statistics.dll
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\DataHelper.dll
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Newtonsoft.Json.dll
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\DataHelper.pdb
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.xml
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.MachineLearning.GPL.xml
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.xml
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.Core.xml
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Neuro.xml
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Statistics.xml
+H:\DataGathererGUI\DataGathererGUI\bin\Debug\Newtonsoft.Json.xml
+H:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.csprojResolveAssemblyReference.cache
+H:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.Form1.resources
+H:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.Properties.Resources.resources
+H:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.csproj.GenerateResource.Cache
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.exe.config
+E:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.exe
+E:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.pdb
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.dll.config
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.exe
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.pdb
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.dll
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.MachineLearning.GPL.dll
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.Core.dll
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.dll
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Neuro.dll
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Statistics.dll
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\DataHelper.dll
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Newtonsoft.Json.dll
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\DataHelper.pdb
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.xml
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.MachineLearning.GPL.xml
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.xml
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.Core.xml
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Neuro.xml
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Statistics.xml
+E:\DataGathererGUI\DataGathererGUI\bin\Debug\Newtonsoft.Json.xml
+E:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.csprojResolveAssemblyReference.cache
+E:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.Form1.resources
+E:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.Properties.Resources.resources
+E:\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.csproj.GenerateResource.Cache
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.exe.config
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.exe
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.pdb
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.dll.config
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.exe
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.pdb
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.dll
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.MachineLearning.GPL.dll
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.Core.dll
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.dll
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Neuro.dll
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Statistics.dll
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\DataHelper.dll
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\DataHelper.pdb
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.xml
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.MachineLearning.GPL.xml
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.xml
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.Core.xml
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Neuro.xml
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Statistics.xml
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.csprojResolveAssemblyReference.cache
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.Form1.resources
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.Properties.Resources.resources
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.csproj.GenerateResource.Cache
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.exe.config
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.exe
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.pdb
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.dll.config
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.exe
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\DataGathererGUI.pdb
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.dll
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.MachineLearning.GPL.dll
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.Core.dll
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.dll
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Neuro.dll
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Statistics.dll
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\DataHelper.dll
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\DataHelper.pdb
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.xml
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.MachineLearning.GPL.xml
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.xml
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Math.Core.xml
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Neuro.xml
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Statistics.xml
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.csprojResolveAssemblyReference.cache
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.Form1.resources
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.Properties.Resources.resources
+C:\Users\Sloth\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\obj\Debug\DataGathererGUI.csproj.GenerateResource.Cache
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Genetic.dll
+C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataGathererGUI\bin\Debug\Accord.Genetic.xml
