@@ -1,5 +1,0 @@
-C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataHelper\bin\Debug\DataHelper.dll
-C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataHelper\bin\Debug\DataHelper.pdb
-C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataHelper\obj\Debug\DataHelper.csprojResolveAssemblyReference.cache
-C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataHelper\obj\Debug\DataHelper.dll
-C:\Users\Gasto\Documents\Visual Studio 2015\Projects\DataGathererGUI\DataHelper\obj\Debug\DataHelper.pdb
