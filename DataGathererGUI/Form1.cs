@@ -372,6 +372,7 @@ namespace DataGathererGUI
                 result = (MessageBox.Show("Current model is not saved. Continue?",
                     "Network not saved",
                     MessageBoxButtons.YesNo) == DialogResult.Yes);
+                Global.ModelFile = null;
             }
             if (result)
             {
@@ -420,8 +421,10 @@ namespace DataGathererGUI
             }
         }
 
-        private DailyPrice PredictSingle(DailyPrice input, DateTime date)
+        private DailyPrice PredictSingle(DailyPrice input, DateTime date, ActivationNetwork model = null)
         {
+            var _model = model ?? Global.Model;
+            
             _predictList = new List<DailyPrice>();
             var retVal = new DailyPrice();
 
@@ -433,7 +436,7 @@ namespace DataGathererGUI
             double[][] _input = DataHelper.DataHelper.GetInputArray(_predictList);
             var output = new double[1];
 
-            output[0] = Global.Model.Compute(_input[0]).FirstOrDefault();
+            output[0] = _model.Compute(_input[0]).FirstOrDefault();
             _predictList[0].Profit = output[0];
             _predictList[0].PriorClosePrice = _predictList[0].ClosePrice;
             _predictList[0].ClosePrice = Math.Round(_predictList[0].ClosePrice * (_predictList[0].Profit + 1));
@@ -602,6 +605,29 @@ namespace DataGathererGUI
             var currentList = priceForDate.ToList();
             chart2.Series[0].Points.DataBindY(priceForDate.Select(x => x.ClosePrice).ToArray());
 
+            ActivationNetwork _model = null;
+            //Training a new model for the stock
+            if (checkBox1.Checked)
+            {
+                _model = new ActivationNetwork(new BipolarSigmoidFunction(2),
+                    Global.FeaturesCount, 15, 1); //hardcoded neurons count
+                var _iterations = 1000;
+                var _teacher = new ResilientBackpropagationLearning(_model);
+                var _initializer = new NguyenWidrow(_model);
+                _initializer.Randomize();
+
+                var _inputs = DataHelper.DataHelper.GetInputArray(currentList);
+                var _outputs = DataHelper.DataHelper.GetOutputArray(currentList);
+
+                for (int i = 0; i < _iterations; i++)
+                {
+                    var trainingError = _teacher.RunEpoch(_inputs, _outputs);
+                    toolStripStatusLabel3.Text = $"Predicting {((DailyPrice)listBox4.SelectedItem).StockCode} {i}/{_iterations} | e={trainingError / _inputs.Length}";
+                    Application.DoEvents();
+                }
+            }
+
+            //end of training
             var firstItem = priceForDate.Select(x => x.ClosePrice).FirstOrDefault();
             var lastItem = priceForDate.Select(x => x.ClosePrice).LastOrDefault();
             lbStockCurrent.Text = $"{selected} | {priceForDate.Count()} days: Profit: {lastItem - firstItem} VND | {Math.Round((lastItem / firstItem - 1) * 100, 2)}%";
@@ -615,7 +641,7 @@ namespace DataGathererGUI
                 {
                     var previous = currentList[i];
                     var original = currentList[i + 1];
-                    listPredict[i + 1] = PredictSingle(previous, previous.CloseDate.AddDays(1));
+                    listPredict[i + 1] = PredictSingle(previous, previous.CloseDate.AddDays(1), _model);
                     error += Math.Sqrt(Math.Pow(listPredict[i + 1].Profit - original.Profit, 2));
                 }
                 error /= dayCount;
@@ -640,6 +666,15 @@ namespace DataGathererGUI
             }
 
             toolStripStatusLabel3.Text = $"Ready";
+            checkBox1.Checked = false;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                listBox4_SelectedIndexChanged(this, e);
+            }
         }
     }
 }

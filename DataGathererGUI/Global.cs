@@ -71,7 +71,7 @@ namespace DataGathererGUI
                 object[] testingList;
 
                 // filter the data
-                var inputList = DataList.Where(x => x.DaysFromNow < 10);
+                var inputList = DataList;//.Where(x => x.DaysFromNow < 10);
                 DataHelper.DataHelper.SliceData(inputList.ToArray(), 0.8, out trainingList, out testingList);
 
                 inputs = DataHelper.DataHelper.GetInputArray(trainingList);
@@ -100,7 +100,8 @@ namespace DataGathererGUI
             }
             set
             {
-                if (File.Exists(value))
+                if (value == null) _modelFile = value;
+                else if (File.Exists(value))
                 {
                     _modelFile = value;
                     using (var fs = File.OpenRead(Global.ModelFile))
