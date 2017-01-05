@@ -435,7 +435,9 @@ namespace DataGathererGUI
 
             output[0] = Global.Model.Compute(_input[0]).FirstOrDefault();
             _predictList[0].Profit = output[0];
-            _predictList[0].ClosePrice += Math.Round(_predictList[0].Profit + 1);
+            _predictList[0].PriorClosePrice = _predictList[0].ClosePrice;
+            _predictList[0].ClosePrice = Math.Round(_predictList[0].ClosePrice * (_predictList[0].Profit + 1));
+            _predictList[0].AvrPrice = _predictList[0].ClosePrice;
 
             return _predictList[0];
         }
@@ -597,6 +599,7 @@ namespace DataGathererGUI
                 .Where(x => x.StockCode == selected)
                 .OrderByDescending(x => x.CloseDate);
 
+            var currentList = priceForDate.ToList();
             chart2.Series[0].Points.DataBindY(priceForDate.Select(x => x.ClosePrice).ToArray());
 
             var firstItem = priceForDate.Select(x => x.ClosePrice).FirstOrDefault();
@@ -608,12 +611,12 @@ namespace DataGathererGUI
             double error = 0.0;
             if (listPredict.Count > 1)
             {
-                for (int i = 1; i < listPredict.Count; i++)
+                for (int i = 0; i < listPredict.Count - 1; i++)
                 {
-                    var previous = listPredict[i - 1];
-                    var original = listPredict[i];
-                    listPredict[i] = PredictSingle(previous, previous.CloseDate.AddDays(1));
-                    error += Math.Sqrt(Math.Pow(listPredict[i].Profit - original.Profit, 2));
+                    var previous = currentList[i];
+                    var original = currentList[i + 1];
+                    listPredict[i + 1] = PredictSingle(previous, previous.CloseDate.AddDays(1));
+                    error += Math.Sqrt(Math.Pow(listPredict[i + 1].Profit - original.Profit, 2));
                 }
                 error /= dayCount;
                 var startIdx = listPredict.Count - 1;
