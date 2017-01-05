@@ -379,13 +379,20 @@ namespace DataGathererGUI
                 Int32.TryParse(txNodes.Text, out neuronsCount);
 
                 neuronsCount = Math.Max(neuronsCount, 1);
-                Global.Model = new ActivationNetwork(new BipolarSigmoidFunction(),
-                    Global.FeaturesCount, neuronsCount, 1);
-                //Global.Model = new ActivationNetwork(new IdentityFunction(),
+                //Global.Model = new ActivationNetwork(new BipolarSigmoidFunction(),
                 //    Global.FeaturesCount, neuronsCount, 1);
+                ////Global.Model = new ActivationNetwork(new IdentityFunction(),
+                ////    Global.FeaturesCount, neuronsCount, 1);
 
-                NguyenWidrow initializer = new NguyenWidrow(Global.Model);
-                initializer.Randomize();
+                //NguyenWidrow initializer = new NguyenWidrow(Global.Model);
+                //initializer.Randomize();
+
+                Global.Model = new Accord.MachineLearning.KNearestNeighbors<double>(
+                    k: 5,
+                    classes: 1,
+                    inputs: Global.inputs,
+                    outputs: Global.outputs, 
+                    distance: new Accord.Math.Distances.Euclidean());
             }
             ResetTrainingButtons();
         }
