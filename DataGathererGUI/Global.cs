@@ -70,7 +70,9 @@ namespace DataGathererGUI
                 object[] trainingList;
                 object[] testingList;
 
-                DataHelper.DataHelper.SliceData(DataList.ToArray(), 0.8, out trainingList, out testingList);
+                // filter the data
+                var inputList = DataList.Where(x => x.DaysFromNow < 10);
+                DataHelper.DataHelper.SliceData(inputList.ToArray(), 0.8, out trainingList, out testingList);
 
                 inputs = DataHelper.DataHelper.GetInputArray(trainingList);
                 outputs = DataHelper.DataHelper.GetOutputArray(trainingList);

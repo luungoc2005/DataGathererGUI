@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TabPage tabPage1;
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
@@ -95,14 +95,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.listBox4 = new System.Windows.Forms.ListBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lbStockCurrent = new System.Windows.Forms.Label();
             this.statusStrip3 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lbForecast = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -237,23 +237,23 @@
             // 
             // chart1
             // 
-            chartArea13.AxisX.LabelStyle.Enabled = false;
-            chartArea13.AxisX.MajorGrid.Enabled = false;
-            chartArea13.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea13.AxisY.MajorGrid.Enabled = false;
-            chartArea13.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea13.BorderColor = System.Drawing.Color.Transparent;
-            chartArea13.BorderWidth = 0;
-            chartArea13.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea13);
+            chartArea1.AxisX.LabelStyle.Enabled = false;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.BorderColor = System.Drawing.Color.Transparent;
+            chartArea1.BorderWidth = 0;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.Location = new System.Drawing.Point(303, 267);
             this.chart1.Name = "chart1";
-            series19.ChartArea = "ChartArea1";
-            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series19.Name = "Series1";
-            series19.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
-            this.chart1.Series.Add(series19);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Name = "Series1";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(418, 71);
             this.chart1.TabIndex = 9;
             this.chart1.Text = "chart1";
@@ -825,6 +825,34 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(722, 392);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
+            // chart2
+            // 
+            chartArea2.AxisX.LabelStyle.Enabled = false;
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisY.MajorGrid.Enabled = false;
+            chartArea2.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.BorderColor = System.Drawing.Color.Transparent;
+            chartArea2.BorderWidth = 0;
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            this.tableLayoutPanel7.SetColumnSpan(this.chart2, 2);
+            this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart2.Location = new System.Drawing.Point(153, 33);
+            this.chart2.Name = "chart2";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Name = "Series1";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Name = "Series2";
+            this.chart2.Series.Add(series2);
+            this.chart2.Series.Add(series3);
+            this.chart2.Size = new System.Drawing.Size(566, 205);
+            this.chart2.TabIndex = 10;
+            this.chart2.Text = "chart2";
+            // 
             // textBox3
             // 
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -844,38 +872,6 @@
             this.listBox4.Size = new System.Drawing.Size(144, 325);
             this.listBox4.TabIndex = 1;
             this.listBox4.SelectedIndexChanged += new System.EventHandler(this.listBox4_SelectedIndexChanged);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // chart2
-            // 
-            chartArea14.AxisX.LabelStyle.Enabled = false;
-            chartArea14.AxisX.MajorGrid.Enabled = false;
-            chartArea14.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea14.AxisY.MajorGrid.Enabled = false;
-            chartArea14.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea14.BorderColor = System.Drawing.Color.Transparent;
-            chartArea14.BorderWidth = 0;
-            chartArea14.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea14);
-            this.tableLayoutPanel7.SetColumnSpan(this.chart2, 2);
-            this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart2.Location = new System.Drawing.Point(153, 33);
-            this.chart2.Name = "chart2";
-            series20.ChartArea = "ChartArea1";
-            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series20.Name = "Series1";
-            series20.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
-            series21.ChartArea = "ChartArea1";
-            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series21.Name = "Series2";
-            this.chart2.Series.Add(series20);
-            this.chart2.Series.Add(series21);
-            this.chart2.Size = new System.Drawing.Size(566, 205);
-            this.chart2.TabIndex = 10;
-            this.chart2.Text = "chart2";
             // 
             // lbStockCurrent
             // 
@@ -912,6 +908,10 @@
             this.lbForecast.Size = new System.Drawing.Size(60, 13);
             this.lbForecast.TabIndex = 13;
             this.lbForecast.Text = "Forecasted";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
