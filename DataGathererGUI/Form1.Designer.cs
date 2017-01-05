@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TabPage tabPage1;
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
@@ -38,6 +43,8 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lbStockSummary = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -86,11 +93,21 @@
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.listBox4 = new System.Windows.Forms.ListBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lbStockCurrent = new System.Windows.Forms.Label();
+            this.statusStrip3 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbForecast = new System.Windows.Forms.Label();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -100,6 +117,10 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            this.statusStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -107,7 +128,7 @@
             tabPage1.Controls.Add(this.tableLayoutPanel1);
             tabPage1.Location = new System.Drawing.Point(4, 22);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            tabPage1.Padding = new System.Windows.Forms.Padding(3);
             tabPage1.Size = new System.Drawing.Size(728, 398);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Data";
@@ -119,19 +140,22 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 424F));
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.listBox2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.listBox1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.propertyGrid1, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.chart1, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lbStockSummary, 2, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.922F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.077996F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.3941F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.6059F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(722, 392);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -139,9 +163,9 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 347);
+            this.button1.Location = new System.Drawing.Point(3, 344);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 21);
+            this.button1.Size = new System.Drawing.Size(144, 24);
             this.button1.TabIndex = 4;
             this.button1.Text = "Get Latest";
             this.button1.UseVisualStyleBackColor = true;
@@ -153,8 +177,8 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(153, 3);
             this.listBox2.Name = "listBox2";
-            this.tableLayoutPanel1.SetRowSpan(this.listBox2, 2);
-            this.listBox2.Size = new System.Drawing.Size(144, 338);
+            this.tableLayoutPanel1.SetRowSpan(this.listBox2, 3);
+            this.listBox2.Size = new System.Drawing.Size(144, 335);
             this.listBox2.TabIndex = 1;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
@@ -164,7 +188,8 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(3, 31);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(144, 310);
+            this.tableLayoutPanel1.SetRowSpan(this.listBox1, 2);
+            this.listBox1.Size = new System.Drawing.Size(144, 307);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -174,7 +199,7 @@
             this.propertyGrid1.Location = new System.Drawing.Point(303, 3);
             this.propertyGrid1.Name = "propertyGrid1";
             this.tableLayoutPanel1.SetRowSpan(this.propertyGrid1, 2);
-            this.propertyGrid1.Size = new System.Drawing.Size(418, 338);
+            this.propertyGrid1.Size = new System.Drawing.Size(418, 258);
             this.propertyGrid1.TabIndex = 2;
             // 
             // statusStrip1
@@ -210,11 +235,45 @@
             this.textBox1.TabIndex = 8;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // chart1
+            // 
+            chartArea13.AxisX.LabelStyle.Enabled = false;
+            chartArea13.AxisX.MajorGrid.Enabled = false;
+            chartArea13.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea13.AxisY.MajorGrid.Enabled = false;
+            chartArea13.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea13.BorderColor = System.Drawing.Color.Transparent;
+            chartArea13.BorderWidth = 0;
+            chartArea13.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea13);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart1.Location = new System.Drawing.Point(303, 267);
+            this.chart1.Name = "chart1";
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series19.Name = "Series1";
+            series19.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
+            this.chart1.Series.Add(series19);
+            this.chart1.Size = new System.Drawing.Size(418, 71);
+            this.chart1.TabIndex = 9;
+            this.chart1.Text = "chart1";
+            // 
+            // lbStockSummary
+            // 
+            this.lbStockSummary.AutoSize = true;
+            this.lbStockSummary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbStockSummary.Location = new System.Drawing.Point(303, 341);
+            this.lbStockSummary.Name = "lbStockSummary";
+            this.lbStockSummary.Size = new System.Drawing.Size(418, 30);
+            this.lbStockSummary.TabIndex = 10;
+            this.lbStockSummary.Text = "Summary";
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -228,7 +287,7 @@
             this.tabPage2.Controls.Add(this.tableLayoutPanel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(728, 398);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Model";
@@ -732,9 +791,127 @@
             this.label6.Text = "Ready";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.tableLayoutPanel7);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(728, 398);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Forecast";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.chart2, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.textBox3, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.listBox4, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.lbStockCurrent, 1, 2);
+            this.tableLayoutPanel7.Controls.Add(this.statusStrip3, 0, 3);
+            this.tableLayoutPanel7.Controls.Add(this.lbForecast, 2, 2);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 4;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.75183F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.24817F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(722, 392);
+            this.tableLayoutPanel7.TabIndex = 0;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox3.Location = new System.Drawing.Point(3, 3);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(144, 20);
+            this.textBox3.TabIndex = 0;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // listBox4
+            // 
+            this.listBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.Location = new System.Drawing.Point(3, 33);
+            this.listBox4.Name = "listBox4";
+            this.tableLayoutPanel7.SetRowSpan(this.listBox4, 2);
+            this.listBox4.Size = new System.Drawing.Size(144, 325);
+            this.listBox4.TabIndex = 1;
+            this.listBox4.SelectedIndexChanged += new System.EventHandler(this.listBox4_SelectedIndexChanged);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // chart2
+            // 
+            chartArea14.AxisX.LabelStyle.Enabled = false;
+            chartArea14.AxisX.MajorGrid.Enabled = false;
+            chartArea14.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea14.AxisY.MajorGrid.Enabled = false;
+            chartArea14.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea14.BorderColor = System.Drawing.Color.Transparent;
+            chartArea14.BorderWidth = 0;
+            chartArea14.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea14);
+            this.tableLayoutPanel7.SetColumnSpan(this.chart2, 2);
+            this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart2.Location = new System.Drawing.Point(153, 33);
+            this.chart2.Name = "chart2";
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series20.Name = "Series1";
+            series20.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series21.Name = "Series2";
+            this.chart2.Series.Add(series20);
+            this.chart2.Series.Add(series21);
+            this.chart2.Size = new System.Drawing.Size(566, 205);
+            this.chart2.TabIndex = 10;
+            this.chart2.Text = "chart2";
+            // 
+            // lbStockCurrent
+            // 
+            this.lbStockCurrent.AutoSize = true;
+            this.lbStockCurrent.Location = new System.Drawing.Point(153, 241);
+            this.lbStockCurrent.Name = "lbStockCurrent";
+            this.lbStockCurrent.Size = new System.Drawing.Size(50, 13);
+            this.lbStockCurrent.TabIndex = 11;
+            this.lbStockCurrent.Text = "Summary";
+            // 
+            // statusStrip3
+            // 
+            this.tableLayoutPanel7.SetColumnSpan(this.statusStrip3, 3);
+            this.statusStrip3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statusStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel3});
+            this.statusStrip3.Location = new System.Drawing.Point(0, 361);
+            this.statusStrip3.Name = "statusStrip3";
+            this.statusStrip3.Size = new System.Drawing.Size(722, 31);
+            this.statusStrip3.TabIndex = 12;
+            this.statusStrip3.Text = "statusStrip3";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(39, 26);
+            this.toolStripStatusLabel3.Text = "Ready";
+            // 
+            // lbForecast
+            // 
+            this.lbForecast.AutoSize = true;
+            this.lbForecast.Location = new System.Drawing.Point(439, 241);
+            this.lbForecast.Name = "lbForecast";
+            this.lbForecast.Size = new System.Drawing.Size(60, 13);
+            this.lbForecast.TabIndex = 13;
+            this.lbForecast.Text = "Forecasted";
             // 
             // Form1
             // 
@@ -750,6 +927,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -763,6 +941,12 @@
             this.tabPage3.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            this.statusStrip3.ResumeLayout(false);
+            this.statusStrip3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -827,6 +1011,17 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.Label lbStockSummary;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.Label lbStockCurrent;
+        private System.Windows.Forms.StatusStrip statusStrip3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.Label lbForecast;
     }
 }
 

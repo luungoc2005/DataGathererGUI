@@ -23,6 +23,7 @@ namespace DataGathererGUI
         IEnumerable<DailyPrice> StocksList { get; set; }
         IEnumerable<DailyPrice> LatestStocks { get; set; }
         List<DailyPrice> _predictList = new List<DailyPrice>();
+        List<ListBox> _stockListBox = new List<ListBox>();
 
         private struct TrainingProgress
         {
@@ -59,6 +60,8 @@ namespace DataGathererGUI
 
             var latestDate = Global.DataList.OrderByDescending(d => d.CloseDate).Take(1).FirstOrDefault().CloseDate;
             LatestStocks = Global.DataList.Where(x => (x.CloseDate == latestDate));
+            _stockListBox.Add(listBox1);
+            _stockListBox.Add(listBox4);
             UpdateList();
             comboBox1.SelectedIndex = 1;
             LoadModel(Global.ModelFile);
@@ -84,7 +87,7 @@ namespace DataGathererGUI
             await downloadTask;
         }
 
-        private void UpdateList(string filter = "")
+        private void UpdateList(string filter = "", ListBox listControl = null)
         {
             Global.inputs = DataHelper.DataHelper.GetInputArray(Global.DataList);
             Global.outputs = DataHelper.DataHelper.GetOutputArray(Global.DataList);
@@ -97,16 +100,21 @@ namespace DataGathererGUI
 
             if (String.IsNullOrWhiteSpace(filter))
             {
-                listBox1.DataSource = StocksList.ToList();
+                foreach (var item in _stockListBox)
+                {
+                    item.DataSource = StocksList.ToList();
+                    item.DisplayMember = "StockCode";
+                }
             }
             else
             {
-                listBox1.DataSource = StocksList.
-                    Where(x => (filter == "" || x.StockCode.ToLower().StartsWith(filter))).
-                    ToList();
+                if (listControl != null)
+                {
+                    listControl.DataSource = StocksList.
+                        Where(x => (filter == "" || x.StockCode.ToLower().StartsWith(filter))).
+                        ToList();
+                }
             }
-
-            listBox1.DisplayMember = "StockCode";
         }
 
         private void AddListItems(IEnumerable<DailyPrice> data, ListView list)
@@ -166,10 +174,17 @@ namespace DataGathererGUI
         {
             if (listBox1.SelectedItem != null)
             {
-                listBox2.DataSource = Global.DataList
+                IEnumerable<DailyPrice> priceForDate = Global.DataList
                     .Where(x => x.StockCode == ((DailyPrice)listBox1.SelectedItem).StockCode)
-                    .OrderByDescending(x => x.CloseDate)
-                    .ToList();
+                    .OrderByDescending(x => x.CloseDate);
+                
+                listBox2.DataSource = priceForDate.ToList();
+                chart1.Series[0].Points.DataBindY(priceForDate.Select(x => x.ClosePrice).ToArray());
+
+                var firstItem = priceForDate.Select(x => x.ClosePrice).FirstOrDefault();
+                var lastItem = priceForDate.Select(x => x.ClosePrice).LastOrDefault();
+                lbStockSummary.Text = $"{priceForDate.Count()} days: Profit: {lastItem - firstItem} VND | {Math.Round((lastItem / firstItem - 1) * 100, 2)}%";
+
                 listBox2.DisplayMember = "CloseDate";
             }
         }
@@ -184,7 +199,7 @@ namespace DataGathererGUI
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            UpdateList(textBox1.Text.ToLower());
+            UpdateList(textBox1.Text.ToLower(), listBox1);
         }
 
         private void ResetTrainingButtons()
@@ -420,6 +435,7 @@ namespace DataGathererGUI
 
             output[0] = Global.Model.Compute(_input[0]).FirstOrDefault();
             _predictList[0].Profit = output[0];
+            _predictList[0].ClosePrice += Math.Round(_predictList[0].Profit + 1);
 
             return _predictList[0];
         }
@@ -564,6 +580,63 @@ namespace DataGathererGUI
                 $"Won guesses: {rightPositive} - {Math.Round((rightPositive / total) * 100, 3)}%\n" +
                 $"Loss guesses: {wrongNegative} - {Math.Round((wrongNegative / total) * 100, 3)}%\n" +
                 $"Approximate Score: {approximateScore / dateList.Count}");
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            UpdateList(textBox3.Text.ToLower(), listBox4);
+        }
+
+        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Global.Model == null || listBox4.SelectedItem == null) return;
+
+            var selected = ((DailyPrice)listBox4.SelectedItem).StockCode;
+            toolStripStatusLabel3.Text = $"Predicting {((DailyPrice)listBox4.SelectedItem).StockCode}";
+            IEnumerable<DailyPrice> priceForDate = Global.DataList
+                .Where(x => x.StockCode == selected)
+                .OrderByDescending(x => x.CloseDate);
+
+            chart2.Series[0].Points.DataBindY(priceForDate.Select(x => x.ClosePrice).ToArray());
+
+            var firstItem = priceForDate.Select(x => x.ClosePrice).FirstOrDefault();
+            var lastItem = priceForDate.Select(x => x.ClosePrice).LastOrDefault();
+            lbStockCurrent.Text = $"{selected} | {priceForDate.Count()} days: Profit: {lastItem - firstItem} VND | {Math.Round((lastItem / firstItem - 1) * 100, 2)}%";
+
+            var listPredict = priceForDate.ToList();
+            int dayCount = listPredict.Count;
+            double error = 0.0;
+            if (listPredict.Count > 1)
+            {
+                for (int i = 1; i < listPredict.Count; i++)
+                {
+                    var previous = listPredict[i - 1];
+                    var original = listPredict[i];
+                    listPredict[i] = PredictSingle(previous, previous.CloseDate.AddDays(1));
+                    error += Math.Sqrt(Math.Pow(listPredict[i].Profit - original.Profit, 2));
+                }
+                error /= dayCount;
+                var startIdx = listPredict.Count - 1;
+
+                for (int i = 0; i < 5; i++)
+                {
+                    var newIdx = startIdx + i;
+                    var previous = listPredict.LastOrDefault();
+                    var predictValue = PredictSingle(previous, previous.CloseDate.AddDays(1));
+                    listPredict.Add(predictValue);
+                }
+
+                chart2.Series[1].Points.DataBindY(listPredict.Select(x => x.ClosePrice).ToArray());
+
+                var firstPredict = listPredict[dayCount - 1].ClosePrice;
+                var lastPredict = Math.Round(listPredict.Select(x => x.ClosePrice).LastOrDefault());
+
+                lbForecast.Text = $"Average error: {error}\n" +
+                                  $"Last predicted price: {lastPredict}\n" +
+                                  $"Change from now: {lastPredict - firstPredict} VND | {Math.Round((lastPredict / firstPredict - 1) * 100, 2)}%";
+            }
+
+            toolStripStatusLabel3.Text = $"Ready";
         }
     }
 }
