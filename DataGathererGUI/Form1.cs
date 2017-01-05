@@ -646,6 +646,7 @@ namespace DataGathererGUI
                 }
                 error /= dayCount;
                 var startIdx = listPredict.Count - 1;
+                string predictedDetails = String.Empty;
 
                 for (int i = 0; i < 5; i++)
                 {
@@ -653,6 +654,7 @@ namespace DataGathererGUI
                     var previous = listPredict.LastOrDefault();
                     var predictValue = PredictSingle(previous, previous.CloseDate.AddDays(1));
                     listPredict.Add(predictValue);
+                    predictedDetails += $"{predictValue.CloseDate} - {predictValue.ClosePrice} | {predictValue.ProfitPretified}%\n";
                 }
 
                 chart2.Series[1].Points.DataBindY(listPredict.Select(x => x.ClosePrice).ToArray());
@@ -662,7 +664,8 @@ namespace DataGathererGUI
 
                 lbForecast.Text = $"Average error: {error}\n" +
                                   $"Last predicted price: {lastPredict}\n" +
-                                  $"Change from now: {lastPredict - firstPredict} VND | {Math.Round((lastPredict / firstPredict - 1) * 100, 2)}%";
+                                  $"Change from now: {lastPredict - firstPredict} VND | {Math.Round((lastPredict / firstPredict - 1) * 100, 2)}%\n\n" +
+                                  predictedDetails;
             }
 
             toolStripStatusLabel3.Text = $"Ready";
