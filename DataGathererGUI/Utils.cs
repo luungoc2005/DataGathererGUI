@@ -24,5 +24,15 @@ namespace DataGathererGUI
                 return new DateTime(1970, 1, 1);
             }
         }
+
+        public static DateTime GetNextDay(DateTime value)
+        {
+            var retVal = value.AddDays(1);
+            while (retVal.DayOfWeek == DayOfWeek.Saturday || retVal.DayOfWeek == DayOfWeek.Sunday)
+            {
+                retVal = retVal.AddDays(1);
+            }
+            return retVal;
+        }
     }
 }

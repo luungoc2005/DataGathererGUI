@@ -71,7 +71,7 @@ namespace DataGathererGUI
                 object[] testingList;
 
                 // filter the data
-                var inputList = DataList;//.Where(x => x.DaysFromNow < 10);
+                var inputList = DataList.Where(x => x.DaysFromNow <= 7); //2 weeks
                 DataHelper.DataHelper.SliceData(inputList.ToArray(), 0.8, out trainingList, out testingList);
 
                 inputs = DataHelper.DataHelper.GetInputArray(trainingList);

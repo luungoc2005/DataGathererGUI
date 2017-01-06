@@ -59,19 +59,27 @@ namespace DataGathererGUI
             string data = await WebMethods.WebGet($"http://finance.vietstock.vn/AjaxData/TradingResult/GetStockData.ashx?scode={stockCode}&_={Utils.GetUnixTime(DateTime.Now).ToString()}");
             if (data != null)
             {
-                var des = JsonConvert.DeserializeObject<List<DailyPrice>>(data);
-                if (des != null && des.Count > 0) return des[0];
+                try
+                {
+                    var des = JsonConvert.DeserializeObject<List<DailyPrice>>(data);
+                    if (des != null && des.Count > 0) return des[0];
+                }
+                catch
+                {
+                    return null;
+                }
             }
             return null;
         }
 
-        public static async Task GetDataFromDate(DateTime time, IProgress<int> progress)
+        public static async Task GetDataFromDate(DateTime time, IProgress<int> progress, bool saveToFile = true)
         {
             List<DailyPrice> dataList = new List<DailyPrice>();
             int count = 0;
 
+            var strFileName = $"{Directory.GetCurrentDirectory()}\\data\\{Utils.GetUnixTime(time).ToString()}.txt";
             Console.WriteLine($"Downloading data for {time.Date.ToString()}");
-            using (var outStream = new StreamWriter(File.Open($"{Directory.GetCurrentDirectory()}\\data\\{Utils.GetUnixTime(time).ToString()}.txt", FileMode.OpenOrCreate)))
+            using (var outStream = new StreamWriter(File.Open(strFileName, FileMode.OpenOrCreate)))
             {
                 outStream.AutoFlush = true;
 
@@ -109,6 +117,7 @@ namespace DataGathererGUI
                     }
                 }
             }
+            if (!saveToFile) File.Delete(strFileName);
             ProcessData(dataList);
             Global.DataList.AddRange(dataList);
         }
@@ -126,6 +135,30 @@ namespace DataGathererGUI
             }
 
             return stockCodes;
+        }
+
+        public static List<DailyPrice> CalculateStdVar(IEnumerable<DailyPrice> inputList)
+        {
+            var returnList = new List<DailyPrice>();
+            var averageList = new Dictionary<string, double>();
+
+            foreach (var price in inputList)
+            {
+                if (!averageList.ContainsKey(price.StockCode))
+                {
+                    List<DailyPrice> stocks = inputList.Where(x => (x.StockCode == price.StockCode)).ToList();
+                    var average = stocks.Sum(x => x.Profit) / stocks.Count;
+                    var stdVar = Math.Sqrt(stocks.Select(x => Math.Pow(x.Profit - average, 2)).Sum() / stocks.Count);
+                    returnList.AddRange(stocks.Select(x =>
+                    {
+                        var newPrice = x;
+                        newPrice.Volatility = stdVar;
+                        return newPrice;
+                    }));
+                }
+            }
+
+            return returnList;
         }
 
         public static List<DailyPrice> ProcessData(IEnumerable<DailyPrice> inputList)
@@ -153,6 +186,8 @@ namespace DataGathererGUI
 
                 returnList.AddRange(dataList);
             }
+
+            returnList = CalculateStdVar(returnList);
 
             return returnList;
         }

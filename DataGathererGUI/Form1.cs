@@ -65,6 +65,7 @@ namespace DataGathererGUI
             UpdateList();
             comboBox1.SelectedIndex = 1;
             LoadModel(Global.ModelFile);
+            txNodes.Text = Math.Ceiling(((double)Global.FeaturesCount + 1) / 2).ToString();
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -72,7 +73,7 @@ namespace DataGathererGUI
             toolStripProgressBar1.Visible = true;
             toolStripStatusLabel1.Text = "Downloading";
             var progressHandler = new Progress<int>(x => toolStripProgressBar1.Value = x);
-            var downloadTask = DataLoader.GetDataFromDate(DateTime.Now, progressHandler);
+            var downloadTask = DataLoader.GetDataFromDate(DateTime.Now, progressHandler, checkBox2.Checked);
             downloadTask.GetAwaiter().OnCompleted(
                 () => 
                 {
@@ -176,7 +177,7 @@ namespace DataGathererGUI
             {
                 IEnumerable<DailyPrice> priceForDate = Global.DataList
                     .Where(x => x.StockCode == ((DailyPrice)listBox1.SelectedItem).StockCode)
-                    .OrderByDescending(x => x.CloseDate);
+                    .OrderBy(x => x.CloseDate);
                 
                 listBox2.DataSource = priceForDate.ToList();
                 chart1.Series[0].Points.DataBindY(priceForDate.Select(x => x.ClosePrice).ToArray());
@@ -211,10 +212,8 @@ namespace DataGathererGUI
             button2.Enabled = (Global.Model != null);
             if (Global.Model != null)
             {
-                if (Global.Model.Layers.Length >= 1)
-                {
-                    lbModelNodes.Text = Global.Model.Layers[0].Neurons.Length.ToString();                    
-                }
+                var listNodes = Global.Model.Layers.Select(x => x.Neurons.Length.ToString()).ToArray();
+                lbModelNodes.Text = String.Join("-", listNodes);
             }
         }
 
@@ -242,6 +241,7 @@ namespace DataGathererGUI
 
         private async void btnTrain_Click(object sender, EventArgs e)
         {
+            var listError = new List<double>();
             if (IsTraining)
             {
                 lock (syncLock)
@@ -256,6 +256,9 @@ namespace DataGathererGUI
                 {
                     toolStripStatusLabel2.Text = 
                     $"Running epoch: {x.epochs} ({TimeSpan.FromMilliseconds(x.timeElapsed / Math.Max(x.epochs, 1)).TotalSeconds}s/epoch) - Current error: {x.error}. Time elapsed: {TimeSpan.FromMilliseconds(x.timeElapsed).ToString()}";
+                    listError.Add(x.error);
+                    if (listError.Count > 300) listError.RemoveAt(0);
+                    chart3.Series[0].Points.DataBindY(listError.ToArray());
                 });
                 var trainingTask = TrainModel(progressHandler);
                 trainingTask.GetAwaiter().OnCompleted(() =>
@@ -376,12 +379,19 @@ namespace DataGathererGUI
             }
             if (result)
             {
-                int neuronsCount = 1;
-                Int32.TryParse(txNodes.Text, out neuronsCount);
-
-                neuronsCount = Math.Max(neuronsCount, 1);
-                Global.Model = new ActivationNetwork(new BipolarSigmoidFunction(),
-                    Global.FeaturesCount, neuronsCount, 1);
+                string[] temp = txNodes.Text.Split('-');
+                List<int> listNeurons = new List<int>();
+                foreach (var str in temp)
+                {
+                    int neuronsCount = 1;
+                    neuronsCount = Math.Max(neuronsCount, 1);
+                    if (Int32.TryParse(str, out neuronsCount)) listNeurons.Add(neuronsCount);
+                }
+                listNeurons.Add(1); // last layer
+                if (listNeurons.Count == 1) return;
+                Global.Model = new ActivationNetwork(new SigmoidFunction(),
+                    Global.FeaturesCount, listNeurons.ToArray());
+                
                 //Global.Model = new ActivationNetwork(new IdentityFunction(),
                 //    Global.FeaturesCount, neuronsCount, 1);
 
@@ -450,7 +460,7 @@ namespace DataGathererGUI
             if (Global.Model != null)
             {
                 var predictList = new List<DailyPrice>();
-                var date = DateTime.Now.AddDays(1);
+                var date = Utils.GetNextDay(DateTime.Now);
                 foreach (var stock in LatestStocks)
                 {
                     predictList.Add(PredictSingle(stock, date));
@@ -600,7 +610,7 @@ namespace DataGathererGUI
             toolStripStatusLabel3.Text = $"Predicting {((DailyPrice)listBox4.SelectedItem).StockCode}";
             IEnumerable<DailyPrice> priceForDate = Global.DataList
                 .Where(x => x.StockCode == selected)
-                .OrderByDescending(x => x.CloseDate);
+                .OrderBy(x => x.CloseDate);
 
             var currentList = priceForDate.ToList();
             chart2.Series[0].Points.DataBindY(priceForDate.Select(x => x.ClosePrice).ToArray());
@@ -630,7 +640,10 @@ namespace DataGathererGUI
             //end of training
             var firstItem = priceForDate.Select(x => x.ClosePrice).FirstOrDefault();
             var lastItem = priceForDate.Select(x => x.ClosePrice).LastOrDefault();
-            lbStockCurrent.Text = $"{selected} | {priceForDate.Count()} days: Profit: {lastItem - firstItem} VND | {Math.Round((lastItem / firstItem - 1) * 100, 2)}%";
+            var firstStock = priceForDate.FirstOrDefault();
+            lbStockCurrent.Text = $"{selected} | {priceForDate.Count()} days: Profit: {lastItem - firstItem} VND | {Math.Round((lastItem / firstItem - 1) * 100, 2)}%\n" +
+                $"Volatility: {Math.Round(firstStock.Volatility * 100, 2)}%\n" +
+                $"URL: {firstStock.URL}";
 
             var listPredict = priceForDate.ToList();
             int dayCount = listPredict.Count;
@@ -641,7 +654,7 @@ namespace DataGathererGUI
                 {
                     var previous = currentList[i];
                     var original = currentList[i + 1];
-                    listPredict[i + 1] = PredictSingle(previous, previous.CloseDate.AddDays(1), _model);
+                    listPredict[i + 1] = PredictSingle(previous, Utils.GetNextDay(previous.CloseDate), _model);
                     error += Math.Sqrt(Math.Pow(listPredict[i + 1].Profit - original.Profit, 2));
                 }
                 error /= dayCount;
@@ -652,7 +665,7 @@ namespace DataGathererGUI
                 {
                     var newIdx = startIdx + i;
                     var previous = listPredict.LastOrDefault();
-                    var predictValue = PredictSingle(previous, previous.CloseDate.AddDays(1));
+                    var predictValue = PredictSingle(previous, Utils.GetNextDay(previous.CloseDate));
                     listPredict.Add(predictValue);
                     predictedDetails += $"{predictValue.CloseDate} - {predictValue.ClosePrice} | {predictValue.ProfitPretified}%\n";
                 }
@@ -667,6 +680,31 @@ namespace DataGathererGUI
                                   $"Change from now: {lastPredict - firstPredict} VND | {Math.Round((lastPredict / firstPredict - 1) * 100, 2)}%\n\n" +
                                   predictedDetails;
             }
+
+            //moving average (4 days) as baseline
+            int numDays = 4;
+            var averageList = new List<double>();
+            for (int i = 0; i < listPredict.Count; i++)
+            {
+                if (i >= (numDays - 1))
+                {
+                    var average = 0.0d;
+                    for (int a = 0; a < numDays; a++)
+                    {
+                        if (i < currentList.Count)
+                        {
+                            average += currentList[i - a].ClosePrice / numDays;
+                        }
+                        else
+                        {
+                            average += listPredict[i - a].ClosePrice / numDays;
+                        }
+                    }
+                    averageList.Add(average);
+                }
+                else averageList.Add(double.NaN);
+            }
+            chart2.Series[2].Points.DataBindY(averageList.ToArray());
 
             toolStripStatusLabel3.Text = $"Ready";
             checkBox1.Checked = false;

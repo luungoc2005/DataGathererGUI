@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TabPage tabPage1;
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea29 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series43 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea30 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series44 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series45 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
@@ -72,10 +76,6 @@
             this.btnTrain = new System.Windows.Forms.Button();
             this.btnEvaluate = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.btnPredict = new System.Windows.Forms.Button();
@@ -104,6 +104,13 @@
             this.lbForecast = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -122,6 +129,8 @@
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.statusStrip3.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -149,6 +158,7 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.chart1, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbStockSummary, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.checkBox2, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -238,23 +248,23 @@
             // 
             // chart1
             // 
-            chartArea29.AxisX.LabelStyle.Enabled = false;
-            chartArea29.AxisX.MajorGrid.Enabled = false;
-            chartArea29.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea29.AxisY.MajorGrid.Enabled = false;
-            chartArea29.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea29.BorderColor = System.Drawing.Color.Transparent;
-            chartArea29.BorderWidth = 0;
-            chartArea29.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea29);
+            chartArea10.AxisX.LabelStyle.Enabled = false;
+            chartArea10.AxisX.MajorGrid.Enabled = false;
+            chartArea10.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea10.AxisY.MajorGrid.Enabled = false;
+            chartArea10.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea10.BorderColor = System.Drawing.Color.Transparent;
+            chartArea10.BorderWidth = 0;
+            chartArea10.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea10);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.Location = new System.Drawing.Point(303, 267);
             this.chart1.Name = "chart1";
-            series43.ChartArea = "ChartArea1";
-            series43.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series43.Name = "Series1";
-            series43.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
-            this.chart1.Series.Add(series43);
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series16.Name = "Series1";
+            series16.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
+            this.chart1.Series.Add(series16);
             this.chart1.Size = new System.Drawing.Size(418, 71);
             this.chart1.TabIndex = 9;
             this.chart1.Text = "chart1";
@@ -303,7 +313,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.statusStrip2, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.listView1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel8, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -612,38 +622,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.LabelWrap = false;
-            this.listView1.Location = new System.Drawing.Point(364, 3);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(355, 326);
-            this.listView1.TabIndex = 8;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Actual";
-            this.columnHeader1.Width = 112;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Predicted";
-            this.columnHeader2.Width = 125;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Error";
-            this.columnHeader3.Width = 114;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.tableLayoutPanel6);
@@ -829,28 +807,37 @@
             // 
             // chart2
             // 
-            chartArea30.AxisX.LabelStyle.Enabled = false;
-            chartArea30.AxisX.MajorGrid.Enabled = false;
-            chartArea30.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea30.AxisY.MajorGrid.Enabled = false;
-            chartArea30.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea30.BorderColor = System.Drawing.Color.Transparent;
-            chartArea30.BorderWidth = 0;
-            chartArea30.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea30);
+            chartArea11.AxisX.LabelStyle.Enabled = false;
+            chartArea11.AxisX.MajorGrid.Enabled = false;
+            chartArea11.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea11.AxisY.MajorGrid.Enabled = false;
+            chartArea11.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea11.BorderColor = System.Drawing.Color.Transparent;
+            chartArea11.BorderWidth = 0;
+            chartArea11.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea11);
             this.tableLayoutPanel7.SetColumnSpan(this.chart2, 2);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend4.Name = "Legend1";
+            this.chart2.Legends.Add(legend4);
             this.chart2.Location = new System.Drawing.Point(153, 33);
             this.chart2.Name = "chart2";
-            series44.ChartArea = "ChartArea1";
-            series44.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series44.Name = "Series1";
-            series44.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
-            series45.ChartArea = "ChartArea1";
-            series45.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series45.Name = "Series2";
-            this.chart2.Series.Add(series44);
-            this.chart2.Series.Add(series45);
+            series17.ChartArea = "ChartArea1";
+            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series17.Legend = "Legend1";
+            series17.Name = "Real Price";
+            series17.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
+            series18.ChartArea = "ChartArea1";
+            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series18.Legend = "Legend1";
+            series18.Name = "Predicted";
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series19.Legend = "Legend1";
+            series19.Name = "Baseline";
+            this.chart2.Series.Add(series17);
+            this.chart2.Series.Add(series18);
+            this.chart2.Series.Add(series19);
             this.chart2.Size = new System.Drawing.Size(566, 205);
             this.chart2.TabIndex = 10;
             this.chart2.Text = "chart2";
@@ -927,6 +914,90 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 1;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Controls.Add(this.chart3, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.listView1, 0, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(364, 3);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(355, 326);
+            this.tableLayoutPanel8.TabIndex = 8;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listView1.LabelWrap = false;
+            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(349, 222);
+            this.listView1.TabIndex = 9;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Actual";
+            this.columnHeader1.Width = 112;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Predicted";
+            this.columnHeader2.Width = 125;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Error";
+            this.columnHeader3.Width = 114;
+            // 
+            // chart3
+            // 
+            chartArea12.AxisX.LabelStyle.Enabled = false;
+            chartArea12.AxisX.MajorGrid.Enabled = false;
+            chartArea12.AxisX2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea12.AxisY.LabelStyle.Enabled = false;
+            chartArea12.AxisY.MajorGrid.Enabled = false;
+            chartArea12.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea12.BorderColor = System.Drawing.Color.Transparent;
+            chartArea12.BorderWidth = 0;
+            chartArea12.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea12);
+            this.chart3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart3.Location = new System.Drawing.Point(3, 231);
+            this.chart3.Name = "chart3";
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series20.Name = "Series1";
+            series20.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
+            this.chart3.Series.Add(series20);
+            this.chart3.Size = new System.Drawing.Size(349, 92);
+            this.chart3.TabIndex = 10;
+            this.chart3.Text = "chart3";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBox2.Location = new System.Drawing.Point(153, 344);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(144, 24);
+            this.checkBox2.TabIndex = 11;
+            this.checkBox2.Text = "Save to file";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -961,6 +1032,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.statusStrip3.ResumeLayout(false);
             this.statusStrip3.PerformLayout();
+            this.tableLayoutPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -998,10 +1071,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button btnTrain;
         private System.Windows.Forms.Button btnEvaluate;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ColumnHeader columnHeader4;
@@ -1037,6 +1106,13 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.Label lbForecast;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
 

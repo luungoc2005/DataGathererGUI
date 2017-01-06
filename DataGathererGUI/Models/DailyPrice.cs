@@ -565,6 +565,7 @@ namespace DataGatherer.Models
         [JsonProperty("CloseDate")]
         public DateTime CloseDate { get; set; }
 
+        #region "Calculated features"
         [Feature]
         public double DaysFromNow
         {
@@ -626,6 +627,10 @@ namespace DataGatherer.Models
                 return (CloseDate.DayOfWeek == System.DayOfWeek.Friday) ? 1.0 : 0.0;
             }
         }
+        #endregion
+
+        [Feature]
+        public double Volatility { get; set; } = 0.0;
         #endregion
 
         [Feature]
