@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Models\DailyPrice.cs" />
+    <Compile Include="Models\MultiplePrice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Score.cs" />

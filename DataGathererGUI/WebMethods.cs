@@ -14,6 +14,7 @@ namespace DataGathererGUI
         public async static Task<string> WebGet(string url)
         {
             HttpClient client = new HttpClient();
+
             try
             {
                 HttpResponseMessage response = await client.GetAsync(url);

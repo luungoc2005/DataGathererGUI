@@ -571,7 +571,8 @@ namespace DataGatherer.Models
         {
             get
             {
-                return (DateTime.Now - CloseDate).TotalDays;
+                //return (DateTime.Now - CloseDate).TotalDays;
+                return Math.Abs(DataGathererGUI.Utils.GetBusinessDays(CloseDate, DateTime.Now));
             }
         }
 

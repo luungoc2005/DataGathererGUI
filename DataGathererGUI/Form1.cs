@@ -642,8 +642,13 @@ namespace DataGathererGUI
             var lastItem = priceForDate.Select(x => x.ClosePrice).LastOrDefault();
             var firstStock = priceForDate.FirstOrDefault();
             lbStockCurrent.Text = $"{selected} | {priceForDate.Count()} days: Profit: {lastItem - firstItem} VND | {Math.Round((lastItem / firstItem - 1) * 100, 2)}%\n" +
-                $"Volatility: {Math.Round(firstStock.Volatility * 100, 2)}%\n" +
-                $"URL: {firstStock.URL}";
+                $"Volatility: {Math.Round(firstStock.Volatility * 100, 2)}%\n";
+            linkLabel1.Text = firstStock.StockCode;
+            linkLabel1.Links.Clear();
+            linkLabel1.Links.Add(new LinkLabel.Link()
+            {
+                LinkData = firstStock.URL
+            });
 
             var listPredict = priceForDate.ToList();
             int dayCount = listPredict.Count;
@@ -716,6 +721,11 @@ namespace DataGathererGUI
             {
                 listBox4_SelectedIndexChanged(this, e);
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(e.Link.LinkData as string);
         }
     }
 }
