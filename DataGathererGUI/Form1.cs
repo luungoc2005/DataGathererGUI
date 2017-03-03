@@ -58,8 +58,8 @@ namespace DataGathererGUI
                 GroupBy(x => x.StockCode).
                 Select(x => x.FirstOrDefault());
 
-            var latestDate = Global.DataList.OrderByDescending(d => d.CloseDate).Take(1).FirstOrDefault().CloseDate;
-            LatestStocks = Global.DataList.Where(x => (x.CloseDate == latestDate));
+            var latestDate = Global.DataList.OrderByDescending(d => d.CloseDate).Take(1).FirstOrDefault().CloseDate.Date;
+            LatestStocks = Global.DataList.Where(x => (x.CloseDate.Date == latestDate));
             _stockListBox.Add(listBox1);
             _stockListBox.Add(listBox4);
             UpdateList();
@@ -82,8 +82,8 @@ namespace DataGathererGUI
                     UpdateList();
                     Global.UpdateData();
 
-                    var latestDate = Global.DataList.OrderByDescending(d => d.CloseDate).Take(1).FirstOrDefault().CloseDate;
-                    LatestStocks = Global.DataList.Where(x => (x.CloseDate == latestDate));
+                    var latestDate = Global.DataList.OrderByDescending(d => d.CloseDate).Take(1).FirstOrDefault().CloseDate.Date;
+                    LatestStocks = Global.DataList.Where(x => (x.CloseDate.Date == latestDate));
                 });
             await downloadTask;
         }

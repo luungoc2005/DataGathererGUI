@@ -759,11 +759,11 @@ namespace DataGatherer.Models
 
         [Feature]
         [JsonProperty("PE")]
-        public double PE { get; set; }
+        public Nullable<double> PE { get; set; }
 
         [Feature]
         [JsonProperty("FwPE")]
-        public double FwPE { get; set; }
+        public Nullable<double> FwPE { get; set; }
 
         [Feature]
         [JsonProperty("BVPS")]

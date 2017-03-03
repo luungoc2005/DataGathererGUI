@@ -8,3 +8,7 @@ C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataHelper\bin\Deb
 C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataHelper\obj\Debug\DataHelper.csprojResolveAssemblyReference.cache
 C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataHelper\obj\Debug\DataHelper.dll
 C:\Users\Gasto\Google Drive\PrivateRepository\DataGathererGUI\DataHelper\obj\Debug\DataHelper.pdb
+D:\Google Drive\PrivateRepository\DataGathererGUI\DataHelper\bin\Debug\DataHelper.dll
+D:\Google Drive\PrivateRepository\DataGathererGUI\DataHelper\bin\Debug\DataHelper.pdb
+D:\Google Drive\PrivateRepository\DataGathererGUI\DataHelper\obj\Debug\DataHelper.dll
+D:\Google Drive\PrivateRepository\DataGathererGUI\DataHelper\obj\Debug\DataHelper.pdb

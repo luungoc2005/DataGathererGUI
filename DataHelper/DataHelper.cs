@@ -71,7 +71,7 @@ namespace DataHelper
                             attributesList.Add(GetPropertyValue(point, feature));
                         }
                     }
-                    returnList.Add(attributesList.ToArray());
+                    returnList.Add(attributesList.Select(x => x.Equals(double.NaN)? 0: x).ToArray());
                     attributesList.Clear();
                 }
 

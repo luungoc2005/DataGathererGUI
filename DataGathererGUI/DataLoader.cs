@@ -28,15 +28,18 @@ namespace DataGathererGUI
                         //Console.WriteLine($"Importing from {filePath}");
                         while (!inStream.EndOfStream)
                         {
+                            var strIn = string.Empty;
                             try
                             {
-                                var import = JsonConvert.DeserializeObject<List<DailyPrice>>(inStream.ReadLine());
+                                strIn =  inStream.ReadLine();
+                                var import = JsonConvert.DeserializeObject<List<DailyPrice>>(strIn);
 
                                 if (!(import == null) && import.Count > 0) dataList.Add(import[0]);
                                 //if (!(import == null) && import.Count > 0 && import[0].MarketStatus != 0) System.Windows.Forms.MessageBox.Show("test");
                             }
-                            catch
+                            catch (Exception ex)
                             {
+                                System.Diagnostics.Debug.WriteLine($"Error: {ex.Message}");
                                 continue;
                             }
                         }
